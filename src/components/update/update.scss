@@ -1,0 +1,55 @@
+.update{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 50%;
+    height: 80%;
+    background-color: #A4BE7B;
+    padding: 50px;
+    z-index: 999;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    
+    h2{
+        margin: 5px;
+        align-self: center;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        
+        input{
+            border: none;
+            border-bottom: 1px solid lightgray;
+              padding: 10px 5px;
+              border-radius: 5px;
+        }
+       
+        .buttons{
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+        }
+            button{
+              border: none;
+              border-radius: 10px;
+              padding: 5px;
+              font-weight: 800;
+              
+             
+            }
+            .update-btn{
+                background-color: dodgerblue;
+            }
+            .close{
+                background-color: indianred;
+            }
+        
+    }
+}
