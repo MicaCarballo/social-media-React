@@ -1,11 +1,12 @@
 @import "../../styles.scss";
 
 .register{
-    height: 100vh;
+    height: auto;
     background-color:#A4BE7B;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 
 
     @include tablet{
@@ -20,7 +21,7 @@
     }
     
     .card{
-        width: 70%;
+        width: 100%;
         display: flex;
         background-color: white;
         border-radius: 12px;
