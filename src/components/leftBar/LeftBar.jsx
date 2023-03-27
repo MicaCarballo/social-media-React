@@ -4,14 +4,22 @@ import "./leftBar.scss"
 
 
 
-import { Link } from 'react-router-dom';
+import { Link, Router, useNavigate } from 'react-router-dom';
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 
 
 
 const LeftBar = () => {
-  
-  
+  const navigate = useNavigate()
+
+  function deleteItems() {
+    localStorage.removeItem("users")
+    useNavigate("/login")
+    
+    // Clear localStorage items 
+
+   
+  }
   
 
   return (
@@ -36,15 +44,14 @@ const LeftBar = () => {
             </Link>
          
           
-          <Link to="/login"  style={{ textDecoration: "none", color: "inherit" }}>
-          <div className="item">
+          <div className="item" onClick={deleteItems}>
           
 
              <i className='bx bx-log-out-circle' style={{fontSize:"30px", color:"black"}} ></i>
 <span>Logout</span>
 
           </div>
-          </Link>
+        
         </div>
         <hr /> 
         
