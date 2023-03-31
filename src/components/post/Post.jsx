@@ -18,6 +18,7 @@ const Post = ({ post }) => {
    
     const [userPost, setuserPost] = useState();
    const [likes, setlikes] = useState()
+   const [liked, setliked] = useState(false)
    
    const { currentUser } = useContext(AuthContext);
 
@@ -37,6 +38,7 @@ const Post = ({ post }) => {
       axios.get(URL)
       .then(res => {
         setlikes(res.data)
+       
       }
       
       
@@ -54,12 +56,15 @@ const handleLike = ()=>{
   const data ={};
   const config={
     headers: {
-      Authorization: `jwt ${currentUser.token}`
+      Authorization:`jwt ${currentUser.token}`
   }
   }
   axios.post(URL, data, config)
   .then(res => {
+    
     console.log(res.data)
+    
+
   }
   
   
@@ -68,6 +73,9 @@ const handleLike = ()=>{
   
       
 }
+
+
+
   
 const handleDelete = ()=>{
   let postId = post.id
@@ -119,7 +127,7 @@ const handleDelete = ()=>{
       <div className="info">
         <div className="item">
          {
-            likes?.users.some((element) => element.id === currentUser.id) ? <FavoriteOutlinedIcon style={{color:"red"}} /> : <FavoriteBorderOutlinedIcon onClick={handleLike} />
+            likes?.users.some((element) => element.id === currentUser.id) ?  <FavoriteOutlinedIcon  style={{color:"red"}} onClick={handleLike}/> : <FavoriteBorderOutlinedIcon onClick={handleLike} />
          }
            
            {likes?.users.length} Likes

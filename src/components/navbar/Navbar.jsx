@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./navbar.scss";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import AppsRoundedIcon from "@mui/icons-material/AppsRounded";
@@ -9,11 +9,15 @@ import { AuthContext } from "../../context/authContext";
 
 
 const Navbar = () => {
-  const { currentUser, setCurrentUser } = useContext(AuthContext);
+  
+  
+  const { currentUser } = useContext(AuthContext);
+
+  
   
   const [menuOpen, setmenuOpen] = useState(false);
 
-  
+ 
 
  
 

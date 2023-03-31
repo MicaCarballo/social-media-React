@@ -21,8 +21,10 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      
       await login(inputs);
       navigate("/")
+     
     } catch (err) {
       setErr(err.response.data);
     }

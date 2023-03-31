@@ -5,7 +5,7 @@ import "./update.scss"
 
 export const Update = ({setopenUpdate}) => {
 
-    const { currentUser } = useContext(AuthContext);
+    const { currentUser, updateUser } = useContext(AuthContext);
     const [update, setupdate] = useState()
 
 const [input, setinput] = useState({
@@ -28,6 +28,7 @@ const submit=async()=>{
   await  axios.patch(URL, input, config)
     .then(res => {
       setupdate(res.data)
+      updateUser()
     }
     
     

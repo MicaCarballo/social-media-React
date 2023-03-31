@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
-import "./profile.scss"
-import coverImg from "../../assets/coverImg.jpg"
+import React, { useContext, useEffect, useState } from 'react';
+import "./profile.scss";
+import coverImg from "../../assets/coverImg.jpg";
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from "../../context/authContext";
@@ -14,6 +14,8 @@ const userId =(useLocation().pathname.split("/")[2])
 const [user, setuser] = useState()
 const [relationship, setrelationship] = useState()
     const [openUpdate, setopenUpdate] = useState(false)
+
+
 useEffect(() => {
   
   const URL =`https://micacarballo-social-media-api.onrender.com/api/v1/users/${userId}` 

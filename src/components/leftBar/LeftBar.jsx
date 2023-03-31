@@ -13,8 +13,10 @@ const LeftBar = () => {
   const navigate = useNavigate()
 
   function deleteItems() {
+   
     localStorage.removeItem("users")
-    useNavigate("/login")
+    navigate("/login")
+    
     
     // Clear localStorage items 
 

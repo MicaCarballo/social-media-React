@@ -42,7 +42,7 @@ console.log(input);
       <div className="container">
         <div className="top">
           <img
-            src={currentUser?.profilePic ? currentUser.profilePic : "https://wiki.fluidproject.org/images/icons/profilepics/anonymous.png"}
+            src={currentUser.profileImg ? currentUser.profileImg : "https://wiki.fluidproject.org/images/icons/profilepics/anonymous.png"}
             alt=""
           />
           <input type="text" placeholder={`What's on your mind ${currentUser?.firstName}?`}name="content" onChange={handleChange}/>
