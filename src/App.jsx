@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext} from 'react'
 import "./styles.scss"
 import './App.css'
 import Login from './pages/login/Login'
@@ -8,6 +8,7 @@ import {
   Navigate,
   Outlet,
   RouterProvider,
+  
 } from "react-router-dom";
 import Navbar from './components/navbar/Navbar';
 import LeftBar from './components/leftBar/LeftBar';
@@ -45,7 +46,9 @@ function App() {
   if(!currentUser){
     return <Navigate to="/login" />
   }return children
+  
 }
+
 
   const router = createBrowserRouter([
    {
@@ -53,6 +56,7 @@ function App() {
       element: (
       <ProtectedRoute>
       <Layout/>
+      
       </ProtectedRoute>
       ),
       children :[
@@ -71,7 +75,8 @@ function App() {
     {
       path: "/register",
       element: <Register />
-    }
+    },
+    
   ]);
 
   
