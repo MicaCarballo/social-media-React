@@ -9,14 +9,21 @@ export const AuthContextProvider = ({ children }) => {
   );
 
   const login = async (inputs) => {
-
+    const res = await axios.post(
+      "https://micacarballo-social-media-api.onrender.com/api/v1/auth/login",
+      inputs,
+      {}
+    );
   
-
-    const res= await axios.post("https://micacarballo-social-media-api.onrender.com/api/v1/auth/login",inputs,{
-      
-    })
-  setCurrentUser(res.data)
+    // Enqueue state update
+    setCurrentUser(res.data);
+  
+    // Delay return so state can update first
+    // await new Promise(resolve => {
+    //   setTimeout(resolve, 0);
+    // })
   };
+  
 
   useEffect(() => {
     localStorage.setItem("users", JSON.stringify(currentUser));

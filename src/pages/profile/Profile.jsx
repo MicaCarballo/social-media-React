@@ -5,6 +5,9 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from "../../context/authContext";
 import { Update } from '../../components/update/Update';
+import Posts from '../../components/posts/Posts';
+import Post from '../../components/post/Post';
+import Loading from '../../components/loading/Loading';
 
 const Profile = () => {
 
@@ -15,7 +18,24 @@ const [user, setuser] = useState()
 const [relationship, setrelationship] = useState()
     const [openUpdate, setopenUpdate] = useState(false)
 
+    const [posts, setposts] = useState()
+    
+    useEffect(() => {
+      const URL = "https://micacarballo-social-media-api.onrender.com/api/v1/posts";
+    axios.get(URL)
+    .then(res => setposts(res.data),
+   
+   
+     
+    )
+    .catch( err => console.log(err))
+    
+      
+    }, [posts])
 
+    posts?.sort(
+      (objA, objB) => Date.parse(new Date(objB.createdAt)) - Date.parse(new Date(objA.createdAt)),
+    )
 useEffect(() => {
   
   const URL =`https://micacarballo-social-media-api.onrender.com/api/v1/users/${userId}` 
@@ -109,6 +129,21 @@ const handleFollow=()=>{
     
     </div>
     { openUpdate && <Update setopenUpdate={setopenUpdate}/>}
+   {
+
+  posts?.map((post)=> {
+   const userPosts = post.userId == userId
+   if(userPosts){
+    return <Post post={post} key={post.id} />;
+   }else{
+    <Loading/>
+   }
+  })
+   }
+        
+
+    
+   
   </div>
   )
 }

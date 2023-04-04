@@ -9,32 +9,35 @@ import "./posts.scss";
 
 
 
-const Posts = ({userId}) => {
+const Posts = ({}) => {
   
   const { currentUser } = useContext(AuthContext);
 
-  const [posts, setposts] = useState()
+  
   const [relationship, setrelationship] = useState()
 
   
-    
+  const [posts, setposts] = useState()
     
       useEffect(() => {
         const URL = "https://micacarballo-social-media-api.onrender.com/api/v1/posts";
       axios.get(URL)
-      .then(res => setposts(res.data))
+      .then(res => setposts(res.data),
+     
+     
+       
+      )
       .catch( err => console.log(err))
       
         
       }, [posts])
       
-    
-    
-    
-       posts?.sort(
+      
+      posts?.sort(
         (objA, objB) => Date.parse(new Date(objB.createdAt)) - Date.parse(new Date(objA.createdAt)),
-      );
+      )
     
+      
   
       useEffect(() => {
   
@@ -55,20 +58,33 @@ const Posts = ({userId}) => {
         .catch( err => console.log(err))
       
       }, [])
-   
+    
+      // posts.some((element)=> console.log(element.userId))
+
+     
+      // console.log(relationship?.some((element)=>{element.id})== posts?.some((element)=> (element.userId)));
+console.log(currentUser)
+
+ 
  
 
-  return <div className="posts">
-    { posts ?
-         posts?.map(post=>(
-          
-          <Post post={post} key={post.id}/>
-        )) : <Loading/>}
-  
-   
-      
-   
-  </div>;
-};
+return (
+  <div className="posts">
+  {posts && relationship ? (
+    posts.map((post) => {
+      const isCurrentUserPost = post.userId === currentUser.id;
+      const isRelatedUserPost = relationship?.find((obj2) => obj2.id === post.userId);
 
+      if (isCurrentUserPost || isRelatedUserPost) {
+        return <Post post={post} key={post.id} />;
+      }
+
+      return null;
+    })
+  ) : (
+    <Loading />
+  )}
+</div>
+
+)}
 export default Posts;
