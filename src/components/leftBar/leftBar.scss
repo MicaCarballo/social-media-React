@@ -2,14 +2,15 @@
 
 .leftBar {
   
-    flex: 2;
+    flex: 1.2;
     position: sticky;
     top: 70px;
     height: calc(100vh - 10vh);
-    
+    ;
     padding: 15px;
-    background-color: themed("backgroundColor");
+    
     color: themed("textColor");
+    
     
 
     @include mobile{
@@ -23,6 +24,7 @@
 
     .container {
       padding: 20px;
+ 
 
       hr {
        

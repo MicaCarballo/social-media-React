@@ -36,7 +36,7 @@ const handleShare = async(e)=>{
     setinput((prev)=>({...prev,[e.target.name]:e.target.value}))
 }
 
-console.log(input);
+
   return (
     <div className="share">
       <div className="container">

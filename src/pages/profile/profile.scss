@@ -1,5 +1,47 @@
 @import "../../styles.scss";
 
+.update-form{
+  
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  gap: 1rem;
+
+  .buttons{
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  button{
+    border: none;
+    background-color: darkgreen;
+    color: white;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 1rem;
+
+  }
+  
+  input{
+   
+    height: 5px;
+    
+    padding: 5px;
+    height: 3rem;
+    display: block;
+    align-self: center;
+    border-radius: 12px;
+    box-shadow: inset 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    text-align: center;
+    font-size: 18px;
+  }
+  label{
+    
+    text-align: center;
+  }
+}
+
 .profile {
     
       background-color: themed("bgSoft");
@@ -29,12 +71,12 @@
       }
       .profileContainer {
         padding: 20px 70px;
-        @include mobile{
-            padding: 10px;
-          }
-          @include tablet{
-            padding: 20px;
-          }
+        // @include mobile{
+        //     padding: 10px;
+        //   }
+        //   @include tablet{
+        //     padding: 20px;
+        //   }
         
   
         .uInfo {
@@ -50,12 +92,12 @@
           align-items: center;
           justify-content: space-between;
           margin-bottom: 20px;
-          @include mobile{
-            flex-direction: column;
-            height: 30vh;
-            padding: 20px;
-            margin-top: 100px;
-          }
+          // @include mobile{
+          //   flex-direction: column;
+          //   height: 30vh;
+          //   padding: 20px;
+          //   margin-top: 100px;
+          // }
          
   
           .left {

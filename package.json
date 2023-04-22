@@ -19,7 +19,10 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.1",
     "react-select-async-paginate": "^0.7.2",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.7.3",
+    "sweetalert2-react-content": "^5.0.7"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

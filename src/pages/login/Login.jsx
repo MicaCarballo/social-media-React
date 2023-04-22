@@ -29,7 +29,7 @@ const Login = () => {
       await login(inputs);
          
   navigate('/')
-       window.location.reload(true)
+       location.reload()
       
       
      
@@ -62,7 +62,7 @@ const Login = () => {
                 <input type="password"placeholder='password' name='password' onChange={handleChange}/>
                {err && "invalid email or password"}
                
-               <button onClick={handleLogin} disabled={isLoading}> {isLoading ? <Loading/> : "Login"}</button>
+               <button onClick={handleLogin} disabled={isLoading} className="login-btn"> {isLoading ? <Loading/> : "Login"}</button>
               
                
               </form>

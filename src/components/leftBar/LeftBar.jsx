@@ -55,7 +55,7 @@ const LeftBar = () => {
           </div>
         
         </div>
-        <hr /> 
+       
         
         </div>
     </div>

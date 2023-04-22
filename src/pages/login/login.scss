@@ -7,16 +7,7 @@
     align-items: center;
     justify-content: center;
    
-    @include tablet{
-        padding-top: 5vh;
-        padding-bottom: 5vh;
-        height: auto;
-    }
-    @include mobile{
-        width: 100vw;
-        padding: 0%;
-        
-    }
+    
    
     .card{
         width: 70%;
@@ -26,13 +17,17 @@
         min-height: 600px;
         overflow: hidden;
         background-color: white;
-        @include tablet{
+        // @include tablet{
+        //     flex-direction: column-reverse;
+        //     width: 75%;
+        // }
+        // @include mobile{
+        //     width: 100vw;
+        //     border-radius: 0%;
+        // }
+        @media (max-width:1140px) {
             flex-direction: column-reverse;
-            width: 75%;
-        }
-        @include mobile{
-            width: 100vw;
-            border-radius: 0%;
+            width: 100%;
         }
         
         .left{
@@ -81,21 +76,28 @@
             }
             form{
                 display: flex;
+                
                 flex-direction: column;
+                
                 gap: 30px;
                 input{
                     border: none;
                     border-bottom: 1px solid lightgray;
                       padding: 20px 10px;
+                      display: block;
                 }
                 button{
-                     width: 50%;
+                     width: 3rem;
+                     height: 2rem;
                      background-color:#A4BE7B;
                      border: none;
                      color: white;
                      font-weight: bold;
                      cursor: pointer;
                      padding: 10px;
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
                 }
             }
 

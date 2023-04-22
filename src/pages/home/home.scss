@@ -1,15 +1,17 @@
 @import "../../styles.scss";
 
 .home{
-  
+  margin-right: 100px;
     @include themify($themes){
         background-color: themed("bgSoft");
         padding: 20px 70px;
     }
     @include mobile{
        padding: 10px;
+       margin-right: 0px;
       }
       @include tablet{
         padding: 20px;
+        margin-right:0px ;
       }
 }

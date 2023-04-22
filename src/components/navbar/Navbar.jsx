@@ -6,10 +6,13 @@ import AppsRoundedIcon from "@mui/icons-material/AppsRounded";
 import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../context/authContext";
+import axios from "axios";
+
+
 
 
 const Navbar = () => {
-  
+  const [users, setusers] = useState()
   
   const { currentUser } = useContext(AuthContext);
 
@@ -19,10 +22,30 @@ const Navbar = () => {
 
  
 
+  useEffect(() => {
+    
+    const URL ="https://micacarballo-social-media-api.onrender.com/api/v1/users/"
+    axios.get(URL)
+    .then(res => setusers(res.data))
+    .catch( err => console.log(err))
+   
+  }, [])
+
  
 
   const handleLogOut = () => {};
 
+
+
+  
+
+
+
+  
+
+ 
+
+  
   return (
     <div
       className="navbar"
@@ -41,6 +64,9 @@ const Navbar = () => {
         }}
       >
         <span>MicaSocial</span>
+       <div>
+       
+       </div>
 
         {menuOpen ? (
           <>
@@ -82,6 +108,11 @@ const Navbar = () => {
             onClick={() => setmenuOpen(!menuOpen)}
           />
         )}
+       
+         
+        
+      
+      
       </div>
 
       <div className="right">

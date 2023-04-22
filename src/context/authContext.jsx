@@ -37,7 +37,11 @@ export const AuthContextProvider = ({ children }) => {
  }
 
     })
-   setCurrentUser(res.data)
+  //  setCurrentUser(res.data)
+  setCurrentUser({...currentUser, firstName : res.data.firstName, lastName: res.data.lastName,
+  nickName: res.data.nickName, gender: res.data.gender, birthDate: res.data.birthDate, profileImg: res.data.profileImg
+  })
+   
   }
   return (
     <AuthContext.Provider value={{ currentUser, login , updateUser}}>

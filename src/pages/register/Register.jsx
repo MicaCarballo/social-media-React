@@ -2,9 +2,12 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import "./register.scss"
+import swal from 'sweetalert';
+import Loading from '../../components/loading/Loading';
+
 
 const Register = () => {
-
+  const [isLoading, setIsLoading] = useState(false);
 const [inputs, setinputs] = useState({
   
   firstName: "",
@@ -17,22 +20,30 @@ const [inputs, setinputs] = useState({
   profileImg:""
 })
 const [err, seterr] = useState(null)
-const [userCreated, setuserCreated] = useState()
+
 const handleChange = async e =>{
   setinputs(prev =>({...prev,[e.target.name]: e.target.value}))
 }
-const navigate = useNavigate()
+
+
 const handleClick = async e => {
   e.preventDefault()
 try{
+  setIsLoading(true)
   await axios.post("https://micacarballo-social-media-api.onrender.com/api/v1/users", inputs)
-  setuserCreated(true)
+  swal("User Created!", {
+    buttons: false,
+    icon:'success',
+    timer: 1500,
+  })
 }catch(err){
 seterr(err.response.data.message)
+}finally {
+  setIsLoading(false); // set loading back to false
 }
 }
 
-console.log(err);
+
 
   return (
     <div className='register'>
@@ -58,10 +69,10 @@ console.log(err);
                       <input type="text"placeholder='username*' name='nickName' onChange={handleChange}/>
                       <input type="text"placeholder='gender' name='gender'onChange={handleChange}/>
                       <input type="text"placeholder='birthday e.g: YYYY/MM/DD*' name='birthday' onChange={handleChange}/>
-                      <input type="text"placeholder='profile picture' name='profileImg' onChange={handleChange}/>
+                      <input type="text"placeholder='profile picture *' name='profileImg' onChange={handleChange}/>
                       {err && "please enter valid data"  }
-                      { userCreated && "your user has been created sucesfully"}
-                      <button onClick={handleClick}>Register</button>
+                      
+                      <button onClick={handleClick}>{ isLoading ? <Loading/> : "Register"}</button>
                     </form>
                     </div>
 
